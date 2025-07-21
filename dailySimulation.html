@@ -1,49 +1,55 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"> 
+  <meta charset="UTF-8">
   <title>My Daily Schedule Simulation</title>
 </head>
 <body style="font-family: sans-serif; text-align: center; padding-top: 60px; background-color: #eef;">
 
   <h1>My Simulated Day</h1>
   <div id="output" style="margin-top: 40px; font-size: 1.5rem;"></div>
-  
+
   <script>
     const output = document.getElementById("output");
 
     // Function to display an activity and set the next one
     function displayActivity(activity, duration, nextActivityFn) {
       output.textContent = activity;
+      // Console log for debugging (broken time)
+      console.log(`[${new Date().toLocaleTimeString()}] Activity: "${activity}" for ${duration} seconds.`); 
+      
       setTimeout(() => {
         if (nextActivityFn) {
           nextActivityFn();
+        } else {
+          console.log(`[${new Date().toLocaleTimeString()}] No more activities. Simulation complete.`);
         }
       }, duration * 1000); // Convert seconds to milliseconds
     }
 
-    // --- Daily Schedule Sequence ---
+// Readjusting time - coded hours rather than minutes
 
+    
     // Start of the day
-    displayActivity("Good morning! The simulation begins...", 3, () => {
-      // Activity 1: Drawing (2 hours)
-      displayActivity("Time to get creative and start drawing! 🎨", 2 * 60 * 60, () => {
-        // Activity 2: Watching YouTube (6 hours)
-        displayActivity("Now, some YouTube for entertainment. 📺", 6 * 60 * 60, () => {
-          // Activity 3: Doing Schoolwork (12 hours)
-          displayActivity("Back to the books for some serious schoolwork. 📚", 12 * 60 * 60, () => {
-            // Activity 4: Working (16 hours)
-            displayActivity("Time to focus on work. 💻", 16 * 60 * 60, () => {
-              // Activity 5: Hiking (1.5 hours)
-              displayActivity("Enjoying some fresh air on a hike! 🏞️", 1.5 * 60 * 60, () => {
-                // Activity 6: Playing with Cats (4 hours)
-                displayActivity("Time for some fun with my furry friends! 🐾", 4 * 60 * 60, () => {
+    displayActivity("Good morning! The simulation begins...", 3, () => { // Initial delay
+      // Activity 1: Drawing (originally 2 hours, now 2 seconds for test)
+      displayActivity("Time to get creative and start drawing! 🎨", 2, () => {
+        // Activity 2: Watching YouTube (originally 6 hours, now 2 seconds for test)
+        displayActivity("Now, some YouTube for entertainment. 📺", 2, () => {
+          // Activity 3: Doing Schoolwork (originally 12 hours, now 2 seconds for test)
+          displayActivity("Back to the books for some serious schoolwork. 📚", 2, () => {
+            // Activity 4: Working (originally 16 hours, now 2 seconds for test)
+            displayActivity("Time to focus on work. 💻", 2, () => {
+              // Activity 5: Hiking (originally 1.5 hours, now 2 seconds for test)
+              displayActivity("Enjoying some fresh air on a hike! 🏞️", 2, () => {
+                // Activity 6: Playing with Cats (originally 4 hours, now 2 seconds for test)
+                displayActivity("Time for some fun with my furry friends! 🐾", 2, () => {
 
-          
                   // Surprise/Twist: Random mood after playing with cats
                   const moods = ["feeling purr-fectly content!", "a little tired, but happy!", "ready for a nap!"];
                   const randomMood = moods[Math.floor(Math.random() * moods.length)];
-                  const randomDelay = Math.random() * 5 + 1; // Random delay between 1 and 6 seconds
+                  const randomDelay = Math.random() * 3 + 1; // Random delay between 1 and 4 seconds for test
+                  
                   displayActivity(`After playing with my cats, I'm ${randomMood}`, randomDelay, () => {
                     output.textContent = "Day concluded. Time for rest! 😴";
                   });
@@ -59,5 +65,3 @@
 
 </body>
 </html>
-                  
-
