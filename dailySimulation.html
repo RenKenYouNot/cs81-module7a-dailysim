@@ -22,3 +22,22 @@
       }, duration * 1000); // Convert seconds to milliseconds
     }
 
+    // --- Daily Schedule Sequence ---
+
+    // Start of the day
+    displayActivity("Good morning! The simulation begins...", 3, () => {
+      // Activity 1: Drawing (2 hours)
+      displayActivity("Time to get creative and start drawing! 🎨", 2 * 60 * 60, () => {
+        // Activity 2: Watching YouTube (6 hours)
+        displayActivity("Now, some YouTube for entertainment. 📺", 6 * 60 * 60, () => {
+          // Activity 3: Doing Schoolwork (12 hours)
+          displayActivity("Back to the books for some serious schoolwork. 📚", 12 * 60 * 60, () => {
+            // Activity 4: Working (16 hours)
+            displayActivity("Time to focus on work. 💻", 16 * 60 * 60, () => {
+              // Activity 5: Hiking (1.5 hours)
+              displayActivity("Enjoying some fresh air on a hike! 🏞️", 1.5 * 60 * 60, () => {
+                // Activity 6: Playing with Cats (4 hours)
+                displayActivity("Time for some fun with my furry friends! 🐾", 4 * 60 * 60, () => {
+
+                  
+
